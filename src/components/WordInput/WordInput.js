@@ -1,12 +1,12 @@
 import React from 'react'
 
-function WordInput() {
-  const [guess, setGuess] = React.useState('')
+function WordInput({ updateGuesses }) {
+  const [currentGuess, setCurrentGuess] = React.useState('')
 
   const handleSubmit = e => {
     e.preventDefault()
-    console.log({ guess })
-    setGuess('')
+    updateGuesses(currentGuess)
+    setCurrentGuess('')
   }
 
   return (
@@ -15,13 +15,13 @@ function WordInput() {
       <input
         id="guess-input"
         type="text"
-        value={guess}
+        value={currentGuess}
         maxLength={5}
         pattern="[A-Z]{5}"
         required={true}
         onChange={e => {
           const value = e.target.value.toUpperCase()
-          setGuess(value)
+          setCurrentGuess(value)
         }}
       />
     </form>
