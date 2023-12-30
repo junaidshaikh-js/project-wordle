@@ -1,6 +1,7 @@
 import React from 'react'
+import { RUNNING } from '../../constants'
 
-function WordInput({ updateGuesses }) {
+function WordInput({ updateGuesses, gameStatus }) {
   const [currentGuess, setCurrentGuess] = React.useState('')
 
   const handleSubmit = e => {
@@ -23,6 +24,7 @@ function WordInput({ updateGuesses }) {
           const value = e.target.value.toUpperCase()
           setCurrentGuess(value)
         }}
+        disabled={gameStatus !== RUNNING}
       />
     </form>
   )
