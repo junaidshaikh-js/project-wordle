@@ -9,7 +9,7 @@ export function checkGuess(guess, answer) {
   const SOLVED_CHAR = '✓';
 
   if (!guess) {
-    return null;
+    return {}
   }
 
   const guessChars = guess.toUpperCase().split('');
